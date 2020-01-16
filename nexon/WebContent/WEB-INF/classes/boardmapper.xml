@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memo">
+  <select id="board" resultType="model.Dto">
+    select * from  (select rownum rnum, R.* from  (select * from memo  order by no desc) R) where rnum between #{rowStart} and #{rowEnd}
+  </select>
+    <select id="board2" resultType="model.Dto">
+    select * from  (select rownum rnum, R.* from  (select * from memo  order by no desc) R) where rnum between #{rowStart} and #{rowEnd}
+  </select>
+  <select id="detail" resultType="model.Dto">
+  	select * from memo where no=#{no}
+  </select>
+  <delete id="delete" parameterType="model.Dto">
+   delete from memo where no=#{no}
+  </delete>
+  <insert id="insert" parameterType="model.Dto">
+  insert into memo values(seq_memo.nextval,#{subject},#{content},#{writer},sysdate)
+  </insert>
+  <update id="update" parameterType="model.Dto">
+  update memo set subject=#{subject},content=#{content} where no=#{no}
+  </update>
+  <select id="search" resultType="model.Dto">
+  select * from memo where (subject like '%'||#{search}||'%' or content like '%'||#{search}||'%' or writer like '%'||#{search}||'%')
+  </select>
+  <select id="gamesearch" resultType="model.GameDto">
+  select * from game where name like '%'||#{search}||'%'
+  </select>
+  <select id="mobilesearch" resultType="model.GameDto">
+  select * from game where format=#{search}
+  </select>
+    <select id="kindsearch" resultType="model.GameDto">
+  select * from game where kind=#{search}
+  </select>
+  <select id="count" resultType="Integer">
+  select count(*) from memo
+  </select>
+  <insert id="replywrite" parameterType="model.Dto">
+  insert into reply values(#{no},#{content},#{writer},sysdate,seq_reply.nextval)
+  </insert>
+  <select id="replyview" resultType="model.Dto">
+  select reply.* from reply where no=#{no} order by no desc
+  </select>
+  <delete id="replydelete">
+  delete from reply where no=#{no} and replyno=#{replyno}
+  </delete>
+</mapper>

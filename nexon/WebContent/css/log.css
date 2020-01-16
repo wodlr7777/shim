@@ -1,0 +1,240 @@
+@charset "UTF-8";
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	background-color:#f8f9fa;
+}
+body, textarea, select, input, button {
+    font: 12px "돋움","dotum","Trebuchet MS","Lucida Grande","Tahoma","Helvetica","Arial",sans-serif;
+    color: #666666;
+}
+a{
+	text-decoration: none;
+	color: #666666;
+}
+h1{
+	position: absolute;
+	left:-999px;
+}
+ul{
+	list-style: none;
+}
+/* --------------------------------------------------- */
+.header-wrap{
+	width:100%;
+	height: 62px;
+	display:flex;
+	justify-content: space-between;
+	font-size:16px;
+	background-color: #fff;
+}
+
+.left{
+	display: flex;
+	margin:auto 0;
+	margin-left:20px;
+	margin-right:220px;
+	font-weight:600;
+}
+.btn a span{
+	display:block;
+	width:15px;
+	height:20px;
+	display: block;
+	position: relative;
+	margin-right:20px;
+}
+.btn span i{
+	width:100%;
+	border-top:2px solid black;
+	position: absolute;
+}
+.btn span i:nth-child(1){
+	top:4px;
+}
+.btn span i:nth-child(2){
+	top:10px;
+}
+.btn span i:nth-child(3){
+	top:16px;
+}
+
+
+.right{
+		margin:auto 0;
+		margin-right:25px;
+}
+.right ul{
+	display: flex;
+}
+.right li{
+	margin:0 10px;
+	font-weight:500;
+}
+.right span{
+	color:gray;
+	font-weight: bold;
+}
+.reg a:hover{
+	color:#0080ff;
+}
+.login{
+	padding:0 20px 0 20px;
+	border:2px solid #333;
+	border-radius: 25px;
+}
+.login a{
+		font-weight: bold;
+}
+.login:hover{
+	background-color: #0080ff;
+}
+.login:hover a{
+	color:#fff;
+}
+.dropdown{
+  display: flex;
+}
+
+.dropdown-content{
+  top:0;
+  left:0;
+  transform:translate3d(-100%,0,0);
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 400px;
+  height: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+.x{
+	font-size:20px;
+	font-weight:500;
+	margin-bottom:15px;
+	padding-bottom:30px;
+}
+/* --------------------main-----------------------*/
+
+.main-wrap{
+	width:450px;
+	height:100%;
+	margin:0 auto;
+	margin-top:100px;
+	margin-bottom:150px;
+}
+.main-img{
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 50px;
+}
+.sub-img{
+		display: flex;
+	justify-content: center;
+	margin:30px 0;
+}
+.box ul{
+	list-style: none;
+}
+.box li{
+	border:1px solid #ddd;
+	margin-top:10px;
+	width:440px;
+}
+.box a{
+	display:block;
+	width: 440px;
+	height: 52px;
+}
+.log-box ul{
+	width:405px;
+	display: flex;
+	font-size:17px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.log-box li{
+	border: 1px solid #777;
+	padding:10px 10px;
+	margin:0 10px;
+}
+.log-box li:first-child{
+	border-bottom:none;
+	margin-left:0;
+}
+.log-box li:nth-child(2){
+	margin-right:0;
+}
+.log-box li:last-child{
+	margin-left:0;
+}
+.log input{
+	width:430px;
+	height:46px;
+	margin-bottom:10px;
+}
+.log-btn{
+	width:430px;
+	height:46px;
+	display:flex;
+	justify-content: center;
+
+}
+.log-btn button{
+		width:430px;
+		border:none;
+		border:1px solid #4160b8;
+		background-color: #486bcd;
+			color:#fff;
+			font-size:17px;
+}
+.user-help{
+	margin:30px 0;
+	font-size: 12px;
+}
+.user-help ul{
+	display: flex;
+}
+.user-help ul li{
+	border-right:1px solid #ddd;
+	padding:0 10px;
+}
+.user-help ul li:first-child{
+	padding-left:0;
+}
+.user-help ul li:last-child{
+	border-right:none;
+	padding-right: 0;
+}
+.dropdown{
+  display: flex;
+}
+
+.dropdown-content{
+  top:0;
+  left:0;
+  transform:translate3d(-100%,0,0);
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 400px;
+  height: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+/* -----------footer영역------------*/
+footer{
+		border-top:1px solid #ddd;
+}
+.footer-wrap{
+	width:510px;
+	height:50px;
+	margin: 0 auto;
+		display: flex;
+	justify-content: center;
+	margin-top:40px;
+}

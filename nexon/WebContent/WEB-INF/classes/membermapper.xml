@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+  <insert id="register" parameterType="model.Dto">
+  insert into member values(seq_reg.nextval,#{id},#{pw},#{name},#{email},sysdate)
+  </insert>
+  <select id="selectReg" resultType="String">
+  select id from member where id=#{id}
+  </select>
+  <select id="idcheck" resultType="int">
+  select count(*) from member where id=#{id}
+  </select>
+  <select id="logincheck" resultType="model.Dto">
+  select * from member where id=#{id} and pw=#{pw}
+  </select>
+  <select id="user" resultType="model.Dto">
+  select * from  (select rownum rnum, R.* from  (select * from member  order by no desc) R) where rnum between #{rowStart} and #{rowEnd}
+  </select>
+  <select id="userdelete">
+  delete from member where no=#{no}
+  </select>
+  <select id="usersearch" resultType="model.Dto">
+  select * from member where (id like '%'||#{search}||'%' or name like '%'||#{search}||'%')
+  </select>
+  <update id="changeinfo">
+  update member set email=#{email},name=#{name} where id=#{id}
+  </update>
+  <select id="pwcheck">
+  select count(*) from member where id=#{id} and pw=#{pw}
+  </select>
+</mapper>
