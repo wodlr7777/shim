@@ -6,6 +6,6 @@ eclipse,tomcat 사용
 
 
 
-제작기간: 약 2주
-개인프로젝트
+제작기간: 약 2주<br>
+개인프로젝트<br>
 디자인 출처:https://www.nexon.com
