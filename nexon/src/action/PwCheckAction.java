@@ -8,17 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.MemberDto;
 
 public class PwCheckAction implements Action {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id=request.getParameter("id");
+		String email=request.getParameter("email");
 		String pw=request.getParameter("pw");
-		Dto dto=new Dto();
-		dto.setId(id);
+		MemberDto dto=new MemberDto();
+		dto.setEmail(email);;
 		dto.setPw(pw);
 		Dao dao=(Dao) request.getServletContext().getAttribute("Dao");
 		request.getSession().getAttribute("member");

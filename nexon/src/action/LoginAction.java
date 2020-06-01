@@ -7,25 +7,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.MemberDto;
+import security.CryptoUtil;
 
 public class LoginAction implements Action {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id=request.getParameter("id");
+		String email=request.getParameter("email");
 		String pw=request.getParameter("pw");
-		Dto dto=new Dto();
-		dto.setId(id);
-		dto.setPw(pw);
+		MemberDto dto=new MemberDto();
+		dto.setEmail(email);
+		String decryptpw=null;
 		Dao dao=(Dao) request.getServletContext().getAttribute("Dao");
-		Dto member=dao.logincheck(dto);
-		request.getSession().setAttribute("member", member);
-		if(member.getId().equals("admin")) {
+		MemberDto member=dao.logincheck(dto);
+		String dbpw=member.getPw();
+		try {
+			decryptpw=CryptoUtil.decryptAES256(dbpw, "key");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(member.getEmail().equals("admin")&&decryptpw.equals(pw)) {
+			request.getSession().setAttribute("member", member);
 			return "adminPage.jsp";
 		}
-		return "index.jsp";
+		else if(member.getEmail().equals(email)&&decryptpw.equals(pw)) {
+			request.getSession().setAttribute("member", member);
+			return "index.jsp";
+		}
+		return "login.jsp";
 	}
 
 }

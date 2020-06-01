@@ -97,11 +97,13 @@
 			<form action="register.do" method="post" name="reg" id="reg">
 			<input type="hidden" value="${token }" name="token">
 				<ul>
-					<li><input type="text" name="id" placeholder="아이디" id="id" required><span class="id-txt"></span></li>
+					<li><input type="email" name="email" placeholder="이메일" required id="email"></li>
 					<li><input type="password" name="pw" placeholder="비밀번호" required id="pw"></li>
 					<li><input type="password" name="pw2" placeholder="비밀번호 확인" required id="pw2"></li>
 					<li><input type="text" name="name" placeholder="이름" required id="name"></li>
-					<li><input type="email" name="email" placeholder="이메일" required id="email"></li>
+					<li><input type="email" name="address" placeholder="주소" required id="address"></li>
+					<li><input type="tel" name="phone" placeholder="핸드폰 번호" required id="phone"></li>
+					<li>남<input type="radio" name="sex" value="남">여<input type="radio" name="sex" value="여"></li>
 				</ul>
 					<button type="button" onclick="RegCheck()">회원가입</button>
 				</form>

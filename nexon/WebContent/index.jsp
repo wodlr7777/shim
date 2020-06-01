@@ -166,7 +166,7 @@ $(document).ready(function(){
 					<div class="game">
 					<div class="title">
 						<h2 style="font-size: 25px;">
-							<span style="color:#07f;">${member.id }</span>님,어서오세요
+							<span style="color:#07f;">${member.name }</span>님,어서오세요
 						</h2>
 					</div>
 					<section class="rec-game">

@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.BoardDto;
+import model.MemberDto;
 
 public class ReplyAction implements Action {
 
@@ -28,14 +29,14 @@ public class ReplyAction implements Action {
 		if(!viewToken.equals(token)) {
 			return "replyboard.do?no="+no;
 		}
-		Dto dto=new Dto();
+		BoardDto dto=new BoardDto();
 		dto.setContent(content);
 		dto.setWriter(writer);
 		dto.setNo(no);
 		dao.reply(dto);
 		request.getSession().setAttribute("sessionToken", "");
-		Dto member=(Dto) request.getSession().getAttribute("member");
-		if(member.getId().equals("admin")) {
+		MemberDto member=(MemberDto) request.getSession().getAttribute("member");
+		if(member.getEmail().equals("admin")) {
 			return "adminPage.jsp";
 		}
 		return "replyboard.do?no="+no;

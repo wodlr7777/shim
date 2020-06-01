@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.BoardDto;
 
 public class EditAction implements Action {
 
@@ -17,7 +17,7 @@ public class EditAction implements Action {
 			throws ServletException, IOException {
 		ServletContext sc=request.getServletContext();
 		Dao dao=(Dao) sc.getAttribute("Dao");
-		Dto dto=new Dto();
+		BoardDto dto=new BoardDto();
 		int no=Integer.parseInt(request.getParameter("no"));
 		String subject=request.getParameter("subject");
 		String content=request.getParameter("content");

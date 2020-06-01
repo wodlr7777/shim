@@ -43,7 +43,7 @@
 						<li>PC방 <span>OFF</span></li>
 						<li class="reg"><a href="#">쪽지</a></li>
 						<li class="reg"><a href="logout.do">로그아웃</a></li>
-						<li id="reg" class="reg"><a href="#">${member.id }</a></li>
+						<li id="reg" class="reg"><a href="#">${member.name }</a></li>
 					</ul>
 					<div class="dropdown-content2">
 						<div>

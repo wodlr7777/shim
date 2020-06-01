@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDateTime;
 
-public class Dto {
+public class BoardDto {
 	private int no;
 	private String subject;
 	private String content;
@@ -13,10 +13,6 @@ public class Dto {
 	private int pageTotal;
 	private int rowStart;
 	private int rowEnd;
-	private String id;
-	private String pw;
-	private String name;
-	private String email;
 	private int replyno;
 	
 	public int getReplyno() {
@@ -24,30 +20,6 @@ public class Dto {
 	}
 	public void setReplyno(int replyno) {
 		this.replyno = replyno;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPw() {
-		return pw;
-	}
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public int getRowStart() {
 		return rowStart;

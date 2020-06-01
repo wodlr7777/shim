@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.BoardDto;
+import model.MemberDto;
 
 public class WriteAction implements Action {
 
@@ -27,14 +28,14 @@ public class WriteAction implements Action {
 		if(!viewToken.equals(token)) {
 			return "board.do";
 		}
-		Dto dto=new Dto();
+		BoardDto dto=new BoardDto();
 		dto.setSubject(subject);
 		dto.setContent(content);
 		dto.setWriter(writer);
 		dao.write(dto);
 		request.getSession().setAttribute("sessionToken", "");
-		Dto member=(Dto) request.getSession().getAttribute("member");
-		if(member.getId().equals("admin")) {
+		MemberDto member=(MemberDto) request.getSession().getAttribute("member");
+		if(member.getEmail().equals("admin")) {
 			return "adminPage.jsp";
 		}
 		return "board.do";

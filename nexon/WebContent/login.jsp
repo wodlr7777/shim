@@ -20,14 +20,14 @@ $(document).ready(function(){
 		  });
 	});
 	function nullch() {
-		var id=$("#id").val().trim()
+		var email=$("#email").val().trim()
 		var pw=$("#pw").val().trim()
-		if(id==""){
+		if(email==""){
 			swal("아이디를 입력해주세요")
 		}else if(pw==""){
 			swal("비밀번호를 입력해주세요")
 		}
-		if(id!=""&&pw!=""){
+		if(email!=""&&pw!=""){
 		$("#login").submit();
 		}
 	}
@@ -50,7 +50,7 @@ $(document).ready(function(){
 			</div>
 			<form action="login.do" method="post" id="login">
 			<div class="log">
-				<input id="id" type="text" name="id" placeholder="넥슨ID(아이디 또는 이메일)를 입력해주세요">
+				<input id="email" type="email" name="email" placeholder="넥슨ID(아이디 또는 이메일)를 입력해주세요">
 				<input id="pw" type="password" name="pw" placeholder="비밀번호를 입력해주세요">
 			</div>
 			<div class="log-btn">

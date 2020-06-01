@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.BoardDto;
 
 public class DetailAction implements Action {
 
@@ -18,7 +18,7 @@ public class DetailAction implements Action {
 		int no=Integer.parseInt(request.getParameter("no"));
 		ServletContext sc=request.getServletContext();
 		Dao dao=(Dao) sc.getAttribute("Dao");
-		Dto board=dao.detailView(no);
+		BoardDto board=dao.detailView(no);
 		request.setAttribute("board", board);
 		return "detail.jsp";
 	}

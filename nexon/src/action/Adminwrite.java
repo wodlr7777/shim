@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.BoardDto;
 
 public class Adminwrite implements Action {
 
@@ -27,7 +27,7 @@ public class Adminwrite implements Action {
 		if(!viewToken.equals(token)) {
 			return "board2.do";
 		}
-		Dto dto=new Dto();
+		BoardDto dto=new BoardDto();
 		dto.setSubject(subject);
 		dto.setContent(content);
 		dto.setWriter(writer);

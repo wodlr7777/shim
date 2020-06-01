@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.MemberDto;
 
 public class ChangeInfo implements Action {
 
@@ -17,7 +17,7 @@ public class ChangeInfo implements Action {
 			throws ServletException, IOException {
 		ServletContext sc=request.getServletContext();
 		Dao dao=(Dao) sc.getAttribute("Dao");
-		Dto dto=(Dto) request.getSession().getAttribute("member");
+		MemberDto dto=(MemberDto) request.getSession().getAttribute("member");
 		dao.changeinfo(dto);
 		return "privateinfo.jsp";
 	}

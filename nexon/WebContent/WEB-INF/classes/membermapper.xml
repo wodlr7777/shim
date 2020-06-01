@@ -3,31 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
-  <insert id="register" parameterType="model.Dto">
-  insert into member values(seq_reg.nextval,#{id},#{pw},#{name},#{email},sysdate)
-  </insert>
+<insert id="user" parameterType="model.MemberDto">
+insert into user values(#{email},#{pw},#{name},#{address},#{sex},#{phone},now())
+</insert>
   <select id="selectReg" resultType="String">
-  select id from member where id=#{id}
+  select email from user where email=#{email}
   </select>
   <select id="idcheck" resultType="int">
-  select count(*) from member where id=#{id}
+  select count(*) from user where email=#{email}
   </select>
-  <select id="logincheck" resultType="model.Dto">
-  select * from member where id=#{id} and pw=#{pw}
+  <select id="logincheck" resultType="model.MemberDto">
+  select * from user where email=#{email}
   </select>
-  <select id="user" resultType="model.Dto">
+  <!-- <select id="user" resultType="model.MemberDto">
   select * from  (select rownum rnum, R.* from  (select * from member  order by no desc) R) where rnum between #{rowStart} and #{rowEnd}
-  </select>
+  </select> -->
   <select id="userdelete">
-  delete from member where no=#{no}
+  delete from user where email=#{email}
   </select>
-  <select id="usersearch" resultType="model.Dto">
-  select * from member where (id like '%'||#{search}||'%' or name like '%'||#{search}||'%')
+  <select id="usersearch" resultType="model.MemberDto">
+  select * from user where (email like '%'||#{search}||'%' or name like '%'||#{search}||'%')
   </select>
   <update id="changeinfo">
-  update member set email=#{email},name=#{name} where id=#{id}
+  update user set email=#{email},name=#{name} where email=#{email}
   </update>
   <select id="pwcheck">
-  select count(*) from member where id=#{id} and pw=#{pw}
+  select count(*) from user where email=#{email} and pw=#{pw}
   </select>
 </mapper>

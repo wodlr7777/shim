@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.MemberDto;
 import paging.Paging;
 
 public class UserInfoAction implements Action {
@@ -26,7 +26,7 @@ public class UserInfoAction implements Action {
 		}
 		int rowTotal=dao.count();
 		Paging page=new Paging(pageNo,rowTotal);
-		List<Dto> member=dao.userview(page);
+		List<MemberDto> member=dao.userview(page);
 		request.setAttribute("member", member);
 		request.setAttribute("page", page);
 		return "user.jsp";

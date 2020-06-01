@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.BoardDto;
 
 public class Replyboard implements Action {
 
@@ -19,7 +19,7 @@ public class Replyboard implements Action {
 		int no=Integer.parseInt(request.getParameter("no"));
 		ServletContext sc=request.getServletContext();
 		Dao dao=(Dao) sc.getAttribute("Dao");
-		List<Dto> board=dao.detailreply(no);
+		List<BoardDto> board=dao.detailreply(no);
 		request.setAttribute("board", board);
 		return "replyboard.jsp";
 	}

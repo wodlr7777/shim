@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="game">
+ <select id="gamesearch" resultType="model.GameDto">
+  select * from game where name like '%'||#{search}||'%'
+  </select>
+  <select id="mobilesearch" resultType="model.GameDto">
+  select * from game where format=#{search}
+  </select>
+    <select id="kindsearch" resultType="model.GameDto">
+  select * from game where kind=#{search}
+  </select>
+  </mapper>

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB.Dao;
-import model.Dto;
+import model.BoardDto;
 
 public class SearchAction implements Action {
 
@@ -19,7 +19,7 @@ public class SearchAction implements Action {
 		String search=request.getParameter("search");
 		ServletContext sc=request.getServletContext();
 		Dao dao=(Dao) sc.getAttribute("Dao");
-		List<Dto> board=dao.search(search);
+		List<BoardDto> board=dao.search(search);
 		request.setAttribute("board",board);
 		return "search.jsp";
 	}
